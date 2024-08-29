@@ -6,7 +6,7 @@
 		"dev": "vite",
 		"serve": "vite",
 		"build:dev0": "tsc && vite build --mode development",
-		"build:dev": "vite build --mode development",
+		"build:dev": " vite build --mode development",
 		"build:test": "tsc && vite build --mode test",
 		"build:pro": "tsc && vite build --mode production",
 		"preview": "vite preview",

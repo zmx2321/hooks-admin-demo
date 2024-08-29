@@ -5,8 +5,7 @@
 	"scripts": {
 		"dev": "vite",
 		"serve": "vite",
-		"build:dev0": "tsc && vite build --mode development",
-		"build:dev": "vite build --mode development",
+		"build:dev": "tsc && vite build --mode development",
 		"build:test": "tsc && vite build --mode test",
 		"build:pro": "tsc && vite build --mode production",
 		"preview": "vite preview",
@@ -17,8 +16,7 @@
 		"prepare": "husky install",
 		"release": "standard-version",
 		"commit": "git pull && git add -A && git-cz && git push",
-		"main": "bash main.sh",
-		"deploy": "bash deploy.sh"
+		"main": "bash main.sh"
 	},
 	"dependencies": {
 		"@ant-design/icons": "^5.2.6",
