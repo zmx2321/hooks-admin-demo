@@ -7,7 +7,7 @@ set -e
 yarn build:pro
 
 # 进入生成的文件夹
-cd dist
+cd hooks-admin-demo
 
 # git pull
 git init
