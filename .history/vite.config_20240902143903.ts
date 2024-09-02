@@ -106,7 +106,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 			// 		drop_debugger: true
 			// 	}
 			// },
-			rollupOptions: {
+			/* rollupOptions: {
 				output: {
 					// Static resource classification and packaging
 					chunkFileNames: "assets/js/[name]-[hash].js",
@@ -119,6 +119,20 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 						// A `:` is only allowed as part of a windows drive letter (ex: C:\foo)
 						// Otherwise, avoid them because they can refer to NTFS alternate data streams.
 						return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
+					}
+				}
+			} */
+			rollupOptions: {
+				// 静态资源分类打包(部署要区分js,css,img文件夹，对应后端的配置)
+				output: {
+					chunkFileNames: 'js/[name]-[hash].js',
+					entryFileNames: 'js/[name]-[hash].js',
+					assetFileNames: (assetInfo) => {
+						if (extname(assetInfo.name) === '.css') {
+							return `css/[name]-[hash].[ext]`;
+						} else {
+							return `img/[name]-[hash].[ext]`;
+						}
 					}
 				}
 			}

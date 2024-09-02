@@ -13,15 +13,12 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
 
-	const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
-	const DRIVE_LETTER_REGEX = /^[a-z]:/i
-
 	return {
-		base: "./",
+		// base: "/",
 		// alias config
 		resolve: {
 			alias: {
-				"@": resolve(__dirname, "./src"),
+				"@": resolve(__dirname, "./src")
 			}
 		},
 		// global css
@@ -86,19 +83,9 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 		},
 		// build configure
 		build: {
-			// outDir: "dist",
-			outDir: __dirname.split(/[\\/]/).pop(),
+			outDir: "dist",
 			// esbuild 打包更快，但是不能去除 console.log，去除 console 使用 terser 模式
 			minify: "esbuild",
-			sourcemap: false, // 是否生成源map
-			commonjsOptions: {
-				include: /node_modules|lib/
-			},
-			// 禁用 gzip 压缩大小报告，可略微减少打包时间
-			reportCompressedSize: false,
-			// 规定触发警告的 chunk 大小
-			chunkSizeWarningLimit: 2000,
-			// assetsDir: 'assets' // 指定静态资源存放路径
 			// minify: "terser",
 			// terserOptions: {
 			// 	compress: {
@@ -106,13 +93,23 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 			// 		drop_debugger: true
 			// 	}
 			// },
-			rollupOptions: {
+			/* rollupOptions: {
 				output: {
 					// Static resource classification and packaging
 					chunkFileNames: "assets/js/[name]-[hash].js",
 					entryFileNames: "assets/js/[name]-[hash].js",
-					assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-
+					assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
+				}
+			} */
+			rollupOptions: {
+				output: {
+					// Static resource classification and packaging
+					chunkFileNames: 'assets/js/[name]-[hash].js',
+					entryFileNames: 'assets/js/[name]-[hash].js',
+					assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
+					compact: true, // 这将缩小汇总生成的包装器代码。请注意，这不会影响用户编写的代码。此选项在捆绑预压缩代码时很有用
+					// https://github.com/rollup/rollup/blob/master/src/utils/sanitizeFileName.ts
+					// eslint-disable-next-line no-shadow
 					sanitizeFileName(name) {
 						const match = DRIVE_LETTER_REGEX.exec(name)
 						const driveLetter = match ? match[0] : ''

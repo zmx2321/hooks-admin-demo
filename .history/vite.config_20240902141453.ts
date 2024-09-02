@@ -13,15 +13,12 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
 
-	const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
-	const DRIVE_LETTER_REGEX = /^[a-z]:/i
-
 	return {
 		base: "./",
 		// alias config
 		resolve: {
 			alias: {
-				"@": resolve(__dirname, "./src"),
+				"@": resolve(__dirname, "./src")
 			}
 		},
 		// global css

@@ -22,11 +22,10 @@ const LoginForm = (props: any) => {
 	const onFinish = async (loginForm: Login.ReqLoginForm) => {
 		try {
 			setLoading(true);
-			// loginForm.password = md5(loginForm.password);
+			loginForm.password = md5(loginForm.password);
 			// const { data } = await loginApi(loginForm);
 			// setToken(data?.access_token);
-			setToken({ access_token: "bqddxxwqmfncffacvbpkuxvwvqrhln" });
-			setTabsList([]);
+			// setTabsList([]);
 			message.success("登录成功！");
 			navigate(HOME_URL);
 		} finally {
@@ -49,12 +48,12 @@ const LoginForm = (props: any) => {
 			size="large"
 			autoComplete="off"
 		>
-			{/* <Form.Item name="username" rules={[{ required: true, message: "请输入用户名" }]}>
+			<Form.Item name="username" rules={[{ required: true, message: "请输入用户名" }]}>
 				<Input placeholder="用户名：admin / user" prefix={<UserOutlined rev={undefined} />} />
 			</Form.Item>
 			<Form.Item name="password" rules={[{ required: true, message: "请输入密码" }]}>
 				<Input.Password autoComplete="new-password" placeholder="密码：123456" prefix={<LockOutlined rev={undefined} />} />
-			</Form.Item> */}
+			</Form.Item>
 			<Form.Item className="login-btn">
 				<Button
 					onClick={() => {
@@ -64,9 +63,9 @@ const LoginForm = (props: any) => {
 				>
 					{t("login.reset")}
 				</Button>
-				<Button type="primary" htmlType="submit" loading={loading} icon={<UserOutlined rev={undefined} />}>
+				{/* <Button type="primary" htmlType="submit" loading={loading} icon={<UserOutlined rev={undefined} />}>
 					{t("login.confirm")}
-				</Button>
+				</Button> */}
 			</Form.Item>
 		</Form>
 	);

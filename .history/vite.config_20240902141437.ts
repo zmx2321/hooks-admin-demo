@@ -13,15 +13,12 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
 
-	const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
-	const DRIVE_LETTER_REGEX = /^[a-z]:/i
-
 	return {
 		base: "./",
 		// alias config
 		resolve: {
 			alias: {
-				"@": resolve(__dirname, "./src"),
+				"@": resolve(__dirname, "./src")
 			}
 		},
 		// global css
@@ -94,6 +91,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 			commonjsOptions: {
 				include: /node_modules|lib/
 			},
+			minify: 'esbuild',
 			// 禁用 gzip 压缩大小报告，可略微减少打包时间
 			reportCompressedSize: false,
 			// 规定触发警告的 chunk 大小

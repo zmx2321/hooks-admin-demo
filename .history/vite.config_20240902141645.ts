@@ -21,7 +21,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 		// alias config
 		resolve: {
 			alias: {
-				"@": resolve(__dirname, "./src"),
+				"@": resolve(__dirname, "./src")
 			}
 		},
 		// global css

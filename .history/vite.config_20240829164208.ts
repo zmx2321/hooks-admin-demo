@@ -13,15 +13,12 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
 
-	const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
-	const DRIVE_LETTER_REGEX = /^[a-z]:/i
-
 	return {
-		base: "./",
+		// base: "/",
 		// alias config
 		resolve: {
 			alias: {
-				"@": resolve(__dirname, "./src"),
+				"@": resolve(__dirname, "./src")
 			}
 		},
 		// global css
@@ -86,19 +83,9 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 		},
 		// build configure
 		build: {
-			// outDir: "dist",
 			outDir: __dirname.split(/[\\/]/).pop(),
 			// esbuild 打包更快，但是不能去除 console.log，去除 console 使用 terser 模式
 			minify: "esbuild",
-			sourcemap: false, // 是否生成源map
-			commonjsOptions: {
-				include: /node_modules|lib/
-			},
-			// 禁用 gzip 压缩大小报告，可略微减少打包时间
-			reportCompressedSize: false,
-			// 规定触发警告的 chunk 大小
-			chunkSizeWarningLimit: 2000,
-			// assetsDir: 'assets' // 指定静态资源存放路径
 			// minify: "terser",
 			// terserOptions: {
 			// 	compress: {
@@ -111,15 +98,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 					// Static resource classification and packaging
 					chunkFileNames: "assets/js/[name]-[hash].js",
 					entryFileNames: "assets/js/[name]-[hash].js",
-					assetFileNames: "assets/[ext]/[name]-[hash].[ext]",
-
-					sanitizeFileName(name) {
-						const match = DRIVE_LETTER_REGEX.exec(name)
-						const driveLetter = match ? match[0] : ''
-						// A `:` is only allowed as part of a windows drive letter (ex: C:\foo)
-						// Otherwise, avoid them because they can refer to NTFS alternate data streams.
-						return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
-					}
+					assetFileNames: "assets/[ext]/[name]-[hash].[ext]"
 				}
 			}
 		}

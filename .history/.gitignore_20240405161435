@@ -14,9 +14,6 @@ dist-ssr
 stats.html
 
 
-hooks-admin-demo
-
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

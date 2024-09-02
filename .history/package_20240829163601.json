@@ -1,5 +1,6 @@
 {
 	"name": "hooks-admin-demo",
+	"homepage": "dist",
 	"private": true,
 	"version": "0.0.1",
 	"scripts": {
