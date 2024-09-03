@@ -3,25 +3,13 @@
 ### 介绍 📖
 
 🚀🚀🚀 Hooks Admin，基于 React18、React-Router v6、React-Hooks、Redux && Redux-Toolkit、TypeScript、Vite2、Ant-Design 开源的一套后台管理框架。
-
-🌈 Redux-Toolkit 版本请切换到 Redux-Toolkit 分支上
-
-### 项目相关文档 📚
-
-- 项目更新日志：[CHANGELOG.md](./CHANGELOG.md)
-
-### 一、在线预览地址 👀
-
-- Link：https://hooks.spicyboy.cn
+🌈 基于此框架,将工作中遇到的一些react功能添加到此项目里面,此项目会和博客一样,作为长期项目进行维护
 
 ### 二、Git 仓库地址 (欢迎 Star⭐)
 
-- Gitee：https://gitee.com/HalseySpicy/Hooks-Admin
-
-- GitHub：https://github.com/HalseySpicy/Hooks-Admin
+- GitHub：https://github.com/zmx2321/hooks-admin-demo
 
 ### 三、🔨🔨🔨 项目功能
-
 - 🚀 采用最新技术找开发：React18、React-Router v6、React-Hooks、TypeScript、Vite2
 - 🚀 采用 Vite2 作为项目开发、打包工具（配置了 Gzip 打包、跨域代理、打包预览工具…）
 - 🚀 整个项目集成了 TypeScript （完全是为了想学习 🤣）
@@ -35,15 +23,6 @@
 - 🚀 使用 husky、lint-staged、commitlint、commitizen、cz-git 规范提交信息（项目规范配置）
 
 ### 四、安装使用步骤 📑
-
-- **Clone：**
-
-```text
-# Gitee
-git clone https://gitee.com/HalseySpicy/Hooks-Admin.git
-# GitHub
-git clone https://github.com/HalseySpicy/Hooks-Admin.git
-```
 
 - **Install：**
 
@@ -173,22 +152,3 @@ Hooks-Admin
 
 - FastMock： https://www.fastmock.site/
 - EasyMock：https://mock.mengxuegu.com/
-
-### 九、微信交流群
-
-微信群已超过 200 人，需要加我好友，拉大家进群 🤪
-
-|                           微信二维码                           |
-| :------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRbJL.png" width=170> |
-
-### 十、捐赠 🍵
-
-如果你正在使用这个项目或者喜欢这个项目的，可以通过以下方式支持我：
-
-- Star、Fork、Watch 一键三连 🚀
-- 通过微信、支付宝一次性捐款 ❤
-
-|                                        微信                                        |                                       支付宝                                       |
-| :--------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------: |
-| <img src="https://i.imgtg.com/2023/01/16/QRzBX.png" alt="Alipay QRcode" width=170> | <img src="https://i.imgtg.com/2023/01/16/QRFZt.png" alt="Wechat QRcode" width=170> |
