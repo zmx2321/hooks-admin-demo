@@ -7,11 +7,14 @@ import { createHtmlPlugin } from "vite-plugin-html";
 import viteCompression from "vite-plugin-compression";
 import eslintPlugin from "vite-plugin-eslint";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import pkg from './package.json'
 
 // @see: https://vitejs.dev/config/
 export default defineConfig((mode: ConfigEnv): UserConfig => {
 	const env = loadEnv(mode.mode, process.cwd());
 	const viteEnv = wrapperEnv(env);
+
+	const { dependencies, devDependencies, name, version } = pkg
 
 	const INVALID_CHAR_REGEX = /[\u0000-\u001F"#$&*+,:;<=>?[\]^`{|}\u007F]/g
 	const DRIVE_LETTER_REGEX = /^[a-z]:/i
@@ -107,7 +110,7 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 			// 	}
 			// },
 			rollupOptions: {
-				output: {
+				/* output: {
 					// Static resource classification and packaging
 					chunkFileNames: "assets/js/[name]-[hash].js",
 					entryFileNames: "assets/js/[name]-[hash].js",
@@ -120,7 +123,29 @@ export default defineConfig((mode: ConfigEnv): UserConfig => {
 						// Otherwise, avoid them because they can refer to NTFS alternate data streams.
 						return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
 					}
-				}
+				} */
+				//配置rollup
+				output: {
+					// 配置rollup输出选项
+					// Static resource classification and packaging//静态资源分类打包
+					// chunkFileNames: `assets/js/[name]-${version}-[hash].js`, //代码块文件名
+					// entryFileNames: `assets/js/[name]-${version}-[hash].js`, //入口文件名
+					// assetFileNames: `assets/[ext]/[name]-${version}-[hash].[ext]`, // 资源文件名
+					manualChunks(id) {
+						if (id.includes('node_modules')) {
+							//使用pnpm打包
+							return id.toString().split('node_modules/')[2].split('/')[0].toString()
+						}
+					},
+
+					sanitizeFileName(name) {
+						const match = DRIVE_LETTER_REGEX.exec(name)
+						const driveLetter = match ? match[0] : ''
+						// A `:` is only allowed as part of a windows drive letter (ex: C:\foo)
+						// Otherwise, avoid them because they can refer to NTFS alternate data streams.
+						return driveLetter + name.slice(driveLetter.length).replace(INVALID_CHAR_REGEX, '')
+					}
+				},
 			}
 		}
 	};
