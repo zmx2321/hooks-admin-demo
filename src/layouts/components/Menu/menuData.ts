@@ -180,4 +180,17 @@ export const menuData = [{
         "title": "个人博客",
         "isLink": "https://zmx2321.github.io/vite-blog/"
     }]
+}, {
+    "icon": "AppstoreOutlined",
+    "title": "demo",
+    "path": "/demo",
+    "children": [{
+        "icon": "AppstoreOutlined",
+        "path": "/demo/demo1",
+        "title": "demo1"
+    }, {
+        "icon": "AppstoreOutlined",
+        "path": "/demo/demo2",
+        "title": "demo2"
+    }]
 }]
