@@ -184,13 +184,21 @@ export const menuData = [{
     "icon": "AppstoreOutlined",
     "title": "demo",
     "path": "/demo",
-    "children": [{
-        "icon": "AppstoreOutlined",
-        "path": "/demo/demo1",
-        "title": "demo1"
-    }, {
-        "icon": "AppstoreOutlined",
-        "path": "/demo/demo2",
-        "title": "demo2"
-    }]
+    "children": [
+        {
+            "icon": "AppstoreOutlined",
+            "path": "/demo/demo0",
+            "title": "demo0"
+        },
+        {
+            "icon": "AppstoreOutlined",
+            "path": "/demo/demo1",
+            "title": "demo1"
+        },
+        {
+            "icon": "AppstoreOutlined",
+            "path": "/demo/demo2",
+            "title": "demo2"
+        }
+    ]
 }]
