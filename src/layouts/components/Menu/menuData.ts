@@ -199,6 +199,11 @@ export const menuData = [{
             "icon": "AppstoreOutlined",
             "path": "/demo/demo2",
             "title": "demo2"
+        },
+        {
+            "icon": "AppstoreOutlined",
+            "path": "/demo/todolist",
+            "title": "todolist"
         }
     ]
 }]

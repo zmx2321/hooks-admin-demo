@@ -38,6 +38,15 @@ const demoRouter: Array<RouteObject> = [
 					key: "demo2"
 				}
 			},
+			{
+				path: "/demo/todolist",
+				element: lazyLoad(React.lazy(() => import("@/views/demo/todolist/index"))),
+				meta: {
+					requiresAuth: true,
+					title: "todolist",
+					key: "todolist"
+				}
+			},
 		]
 	}
 ];
