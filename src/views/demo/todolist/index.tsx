@@ -1,11 +1,11 @@
 import "./index.less";
 
-const Demo2 = () => {
+const ToDoList = () => {
 	return (
-		<section className="demo2">
-			demo2
+		<section className="todolist">
+			todolist
 		</section>
 	);
 };
 
-export default Demo2;
+export default ToDoList;
