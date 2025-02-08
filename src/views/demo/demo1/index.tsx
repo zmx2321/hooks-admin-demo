@@ -42,6 +42,12 @@ const Demo1 = () => {
 		}
 	]
 
+	const articleInfo = {
+		title: '标题4',
+		content: '内容4',
+		active: true,
+	}
+
 	/**
 	 * 带状态数据
 	 */
