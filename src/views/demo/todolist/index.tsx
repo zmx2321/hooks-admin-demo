@@ -7,8 +7,6 @@ import TodoItem from "./components/TodoItem";
 
 import { Todo } from "./types";
 
-import "./index.less";
-
 const Home = () => {
 	const [todos, setTodos] = useState<Todo[]>([])
 	const [filter, setFilter] = useState<string>('all')
