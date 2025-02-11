@@ -1,0 +1,1 @@
+var t="[object String]",o=Object.prototype,i=o.toString,n=Array.isArray;function s(r){return!!r&&typeof r=="object"}function c(r){return typeof r=="string"||!n(r)&&s(r)&&i.call(r)==t}var e=c;export{e as l};
