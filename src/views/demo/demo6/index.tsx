@@ -3,7 +3,8 @@ import { Fragment } from 'react';
 // style
 import "./index.less";
 // components
-import _Example from './components/_example';
+import _Example from './components/example/_Example';
+import Test01 from './components/test/test01';
 
 
 const Demo6 = () => {
@@ -28,7 +29,10 @@ const Demo6 = () => {
 	 */
 	return (
 		<section className="demo6">
-			<_Example />
+			{/* 简单示例 */}
+			{/* <_Example /> */}
+			{/* react入门示例 */}
+			<Test01 />
 		</section >
 	);
 };
