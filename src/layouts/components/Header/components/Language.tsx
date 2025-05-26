@@ -24,7 +24,7 @@ const Language = (props: any) => {
 		/>
 	);
 	return (
-		<Dropdown overlay={menu} placement="bottom" trigger={["click"]} arrow={true}>
+		<Dropdown menu={menu} placement="bottom" trigger={["click"]} arrow={true}>
 			<i className="icon-style iconfont icon-zhongyingwen"></i>
 		</Dropdown>
 	);

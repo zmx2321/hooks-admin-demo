@@ -67,7 +67,7 @@ const AvatarIcon = (props: any) => {
 	);
 	return (
 		<>
-			<Dropdown overlay={menu} placement="bottom" arrow trigger={["click"]}>
+			<Dropdown menu={menu} placement="bottom" arrow trigger={["click"]}>
 				<Avatar size="large" src={avatar} />
 			</Dropdown>
 			<InfoModal innerRef={infoRef}></InfoModal>

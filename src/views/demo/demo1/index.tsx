@@ -70,6 +70,7 @@ const Demo1 = () => {
 			{/* jsx的展开语法 */}
 			<img src={logo} alt="" {...imgData} />
 
+			{/* 父组件传值给子组件,直接定义,这个和vue3差不多,拿一个变量来存 */}
 			<Article title="标题1" content="内容1" />
 			<Article title="标题2" content="内容2" active />
 			<Article title="标题3" content="内容3" />

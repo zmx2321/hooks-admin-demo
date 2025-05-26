@@ -5,6 +5,9 @@ import './index.css'
 
 // 文章组件
 // 父组件传值给子组件，子组件通过props接收
+// 父组件使用了 title = 'ddddd'
+// react直接将他们挂到了props里面,可以直接使用
+// 在组件传值方面,react写法比vue简单很多
 const Article = (props) => {
     return (
         <>
